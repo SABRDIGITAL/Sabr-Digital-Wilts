@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SABR DIGITAL — Clean, Modern Websites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SABR DIGITAL builds clean, modern websites for barbers, tattoo studios, trades and local UK businesses." />
+  
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+          },
+          colors: {
+            sabrBlue: "#38bdf8",
+          },
+          boxShadow: {
+            soft: "0 18px 40px rgba(0,0,0,.32)",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- GSAP -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #020617; } /* zinc-950-ish */
+    .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.85); }
+
+    /* Background grid */
+    .grid-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    #techGrid {
+      width: 140%;
+      height: 140%;
+      opacity: 0.25;
+      transform: translate3d(-10%, -10%, 0);
+    }
+  </style>
+</head>
+<body class="font-sans text-zinc-50">
+
+  <!-- Animated grid background -->
+  <div class="grid-wrapper pointer-events-none">
+    <svg id="techGrid" viewBox="0 0 1000 1000">
+      <!-- vertical lines -->
+      <g stroke="#38bdf8" stroke-width="0.4" stroke-linecap="round">
+        <!-- We'll animate these with GSAP -->
+        <!-- simple 10x10 grid -->
+        <!-- vertical -->
+        <!-- 0 to 1000 every 100 -->
+        <!-- horizontal -->
+        <!-- 0 to 1000 every 100 -->
+        <!-- vertical -->
+        <line class="grid-line" x1="0" y1="0" x2="0" y2="1000"/>
+        <line class="grid-line" x1="100" y1="0" x2="100" y2="1000"/>
+        <line class="grid-line" x1="200" y1="0" x2="200" y2="1000"/>
+        <line class="grid-line" x1="300" y1="0" x2="300" y2="1000"/>
+        <line class="grid-line" x1="400" y1="0" x2="400" y2="1000"/>
+        <line class="grid-line" x1="500" y1="0" x2="500" y2="1000"/>
+        <line class="grid-line" x1="600" y1="0" x2="600" y2="1000"/>
+        <line class="grid-line" x1="700" y1="0" x2="700" y2="1000"/>
+        <line class="grid-line" x1="800" y1="0" x2="800" y2="1000"/>
+        <line class="grid-line" x1="900" y1="0" x2="900" y2="1000"/>
+        <line class="grid-line" x1="1000" y1="0" x2="1000" y2="1000"/>
+        <!-- horizontal -->
+        <line class="grid-line" x1="0" y1="0" x2="1000" y2="0"/>
+        <line class="grid-line" x1="0" y1="100" x2="1000" y2="100"/>
+        <line class="grid-line" x1="0" y1="200" x2="1000" y2="200"/>
+        <line class="grid-line" x1="0" y1="300" x2="1000" y2="300"/>
+        <line class="grid-line" x1="0" y1="400" x2="1000" y2="400"/>
+        <line class="grid-line" x1="0" y1="500" x2="1000" y2="500"/>
+        <line class="grid-line" x1="0" y1="600" x2="1000" y2="600"/>
+        <line class="grid-line" x1="0" y1="700" x2="1000" y2="700"/>
+        <line class="grid-line" x1="0" y1="800" x2="1000" y2="800"/>
+        <line class="grid-line" x1="0" y1="900" x2="1000" y2="900"/>
+        <line class="grid-line" x1="0" y1="1000" x2="1000" y2="1000"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 pt-4">
+      <nav class="glass rounded-2xl shadow-soft border border-sabrBlue/30 flex items-center justify-between px-4 py-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <!-- Use your real logo file here -->
+          <div class="h-9 w-9 rounded-xl bg-sabrBlue/10 border border-sabrBlue/60 flex items-center justify-center overflow-hidden">
+            <img src="sabr-logo.png" alt="SABR DIGITAL logo" class="h-8 w-8 object-contain">
+          </div>
+          <span class="font-semibold tracking-tight text-lg">SABR DIGITAL</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-zinc-200">
+          <a href="work.html" class="hover:text-sabrBlue transition">Our Work</a>
+          <a href="process.html" class="hover:text-sabrBlue transition">The Process</a>
+          <a href="talk-to-us.html" class="hover:text-sabrBlue transition">Talk To Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 md:pt-40 pb-20">
+    <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Clean, modern websites that help you win more customers.
+        </h1>
+        <p class="mt-5 text-zinc-300/90 text-lg max-w-xl">
+          A professional online presence built for real UK businesses. You send the basics, we design, and you go live with something you’re proud to show customers.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="talk-to-us.html" class="px-5 py-3 rounded-xl bg-sabrBlue text-white font-semibold shadow-soft hover:shadow-[0_0_40px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 transition">
+            Get a Quote
+          </a>
+          <a href="work.html" class="px-5 py-3 rounded-xl border border-zinc-700/70 bg-black/40 hover:border-sabrBlue/60 hover:text-sabrBlue transition">
+            View Our Work
+          </a>
+        </div>
+
+        <!-- Hero icons with emojis -->
+        <div class="mt-10 flex flex-wrap gap-4 text-sm text-zinc-300">
+          <div class="flex items-center gap-2 bg-black/40 border border-zinc-800 rounded-full px-3 py-1.5">
+            <span>🛡️</span><span>Professional &amp; trustworthy</span>
+          </div>
+          <div class="flex items-center gap-2 bg-black/40 border border-zinc-800 rounded-full px-3 py-1.5">
+            <span>✨</span><span>Clean and modern design</span>
+          </div>
+          <div class="flex items-center gap-2 bg-black/40 border border-zinc-800 rounded-full px-3 py-1.5">
+            <span>⚡</span><span>Simple, done-for-you process</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-0 blur-3xl bg-sabrBlue/20 rounded-[40px] -z-10"></div>
+        <div class="rounded-3xl overflow-hidden border border-zinc-800/80 shadow-soft bg-black/60">
+          <img src="https://images.unsplash.com/photo-1517456793572-c787fb72324a?q=80&w=2000&auto=format&fit=crop"
+               alt="Modern barbershop environment" class="w-full h-80 object-cover" />
+        </div>
+        <div class="mt-5 grid grid-cols-3 gap-4">
+          <button data-modal-target="beforeAfterModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left">
+            <p class="font-semibold text-sm">Before / After</p>
+            <p class="text-xs text-zinc-400 mt-1">See real upgrades in a side-by-side view.</p>
+          </button>
+          <button data-modal-target="simpleProcessModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left">
+            <p class="font-semibold text-sm">Simple Process</p>
+            <p class="text-xs text-zinc-400 mt-1">View how we build your website.</p>
+          </button>
+          <a href="work.html" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition block">
+            <p class="font-semibold text-sm">View Our Work</p>
+            <p class="text-xs text-zinc-400 mt-1">Explore full example projects.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS / STATS -->
+    <section class="mt-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Look professional. Stand out locally.</h2>
+          <p class="mt-3 text-zinc-400">
+            Most local businesses either don’t have a website, or have one that looks outdated. We fix that with clean, modern design that builds trust at first glance.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mt-10">
+          <!-- Card 1 -->
+          <article class="p-6 rounded-3xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/60 transition">
+            <p class="text-xs uppercase tracking-wide text-sabrBlue/80 font-semibold mb-1">38% statistic</p>
+            <h3 class="font-semibold text-lg mb-2">Is your business visible where it matters?</h3>
+            <p class="text-sm text-zinc-300">
+              38% of customers won’t trust a business without a website. When your business doesn’t have a website, the likelihood of a customer trusting you — and choosing to work with you — is dampened massively.
+            </p>
+          </article>
+          <!-- Card 2 -->
+          <article class="p-6 rounded-3xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/60 transition">
+            <p class="text-xs uppercase tracking-wide text-sabrBlue/80 font-semibold mb-1">70% statistic</p>
+            <h3 class="font-semibold text-lg mb-2">Trust matters — are you showing it?</h3>
+            <p class="text-sm text-zinc-300">
+              70% of local customers check your website before visiting in person. If your site looks outdated or is hard to use, most people never even make it through the door.
+            </p>
+          </article>
+          <!-- Card 3 -->
+          <article class="p-6 rounded-3xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/60 transition">
+            <p class="text-xs uppercase tracking-wide text-sabrBlue/80 font-semibold mb-1">88% statistic</p>
+            <h3 class="font-semibold text-lg mb-2">Stand out — don’t disappear in the crowd.</h3>
+            <p class="text-sm text-zinc-300">
+              88% of people won’t return after a bad website experience. One slow, confusing or broken visit is usually the last — they leave, and they don’t come back.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK -->
+    <section class="mt-24">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold">View Our Work</h2>
+            <p class="mt-2 text-zinc-400 text-sm">
+              Interactive previews of example websites for barbers, tattoo studios and trades.
+            </p>
+          </div>
+          <a href="work.html" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-zinc-700/70 bg-black/40 hover:border-sabrBlue/70 hover:text-sabrBlue transition text-sm">
+            See full examples
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-10">
+          <!-- Barber -->
+          <button class="group relative overflow-hidden rounded-3xl border border-zinc-800 hover:border-sabrBlue/70 transition project-card" data-project="barber">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition"
+                 src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1600&auto=format&fit=crop"
+                 alt="Barber Studio website preview" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Barber Studio</p>
+              <p class="text-sm text-white/80">Modern, sharp, appointment-ready.</p>
+            </div>
+          </button>
+
+          <!-- Tattoo -->
+          <button class="group relative overflow-hidden rounded-3xl border border-zinc-800 hover:border-sabrBlue/70 transition project-card" data-project="tattoo">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition"
+                 src="https://images.unsplash.com/photo-1541976076758-347942db197a?q=80&w=1600&auto=format&fit=crop"
+                 alt="Tattoo Studio website preview" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Tattoo Studio</p>
+              <p class="text-sm text-white/80">High-contrast, portfolio-driven.</p>
+            </div>
+          </button>
+
+          <!-- Trades -->
+          <button class="group relative overflow-hidden rounded-3xl border border-zinc-800 hover:border-sabrBlue/70 transition project-card" data-project="trades">
+            <img class="h-56 w-full object-cover group-hover:scale-105 transition"
+                 src="https://images.unsplash.com/photo-1523419409543-8c1aec7d7b86?q=80&w=1600&auto=format&fit=crop"
+                 alt="Trades & construction website preview" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Trades & Construction</p>
+              <p class="text-sm text-white/80">Clear, direct and trustworthy.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL OVERLAY FOR MINI-SITES -->
+  <div id="projectModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50">
+    <div class="relative w-[95vw] max-w-5xl h-[80vh] bg-zinc-950/95 border border-sabrBlue/40 rounded-3xl shadow-soft overflow-hidden flex flex-col">
+      <div class="flex items-center justify-between px-5 py-3 border-b border-zinc-800">
+        <div>
+          <h3 id="modalTitle" class="font-semibold text-lg">Project Preview</h3>
+          <p class="text-xs text-zinc-400 mt-0.5">Homepage preview only. View full version on the Our Work page.</p>
+        </div>
+        <button id="modalClose" class="h-8 w-8 rounded-full border border-zinc-700 hover:border-sabrBlue/70 hover:text-sabrBlue flex items-center justify-center text-sm">
+          ✕
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto" id="modalContent">
+        <!-- mini homepage content gets injected here -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-16 border-t border-zinc-800/70">
+    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-zinc-400 flex items-center justify-between">
+      <p>© <span id="year"></span> SABR DIGITAL. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="work.html" class="hover:text-sabrBlue text-xs">Examples</a>
+        <a href="process.html" class="hover:text-sabrBlue text-xs">The Process</a>
+        <a href="talk-to-us.html" class="hover:text-sabrBlue text-xs">Talk To Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    window.addEventListener('load', () => {
+      // GSAP setup
+      if (window.gsap) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Grid drift + line drawing
+        const lines = document.querySelectorAll('.grid-line');
+        lines.forEach(line => {
+          const length = line.getTotalLength ? line.getTotalLength() : 400;
+          line.style.strokeDasharray = length;
+          line.style.strokeDashoffset = length;
+        });
+
+        gsap.to('#techGrid', {
+          x: '-5%',
+          y: '-5%',
+          duration: 30,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.grid-line', {
+          strokeDashoffset: 0,
+          duration: 2,
+          ease: 'power2.out',
+          stagger: 0.02,
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true
+          }
+        });
+
+        // Section glides
+        gsap.utils.toArray('section').forEach((sec) => {
+          gsap.from(sec.children, {
+            y: 24,
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 80%',
+            }
+          });
+        });
+      }
+
+      // Modal logic
+      const modal = document.getElementById('projectModal');
+      const modalContent = document.getElementById('modalContent');
+      const modalTitle = document.getElementById('modalTitle');
+      const closeBtn = document.getElementById('modalClose');
+
+      const projectTemplates = {
+        barber: `
+          <div class="p-6 md:p-8">
+            <header class="flex items-center justify-between mb-6">
+              <div>
+                <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Example project</p>
+                <h2 class="text-2xl font-bold">Fade House Studio</h2>
+                <p class="text-sm text-zinc-400 mt-1">Modern barber website focused on bookings and social proof.</p>
+              </div>
+              <div class="hidden md:flex gap-3 text-xs">
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">Our Work</button>
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">The Process</button>
+              </div>
+            </header>
+            <section class="grid md:grid-cols-2 gap-6 items-start mb-8">
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Sharp, simple, easy to book.</h3>
+                <p class="text-sm text-zinc-300">
+                  The homepage leads with a strong hero, a clean list of services, real photos and a direct “Book now” call-to-action. 
+                  Everything is designed to answer one question fast: “Can I trust this barber?”
+                </p>
+                <ul class="mt-4 text-sm text-zinc-300 space-y-1">
+                  <li>• Price list visible immediately</li>
+                  <li>• Strong review highlights</li>
+                  <li>• Clear link to Instagram</li>
+                  <li>• Simple booking flow</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-zinc-800 bg-black/50 h-64">
+                <div class="h-full w-full flex items-center justify-center text-xs text-zinc-500">
+                  Mini homepage layout preview (scrollable on full site).
+                </div>
+              </div>
+            </section>
+          </div>
+        `,
+        tattoo: `
+          <div class="p-6 md:p-8">
+            <header class="flex items-center justify-between mb-6">
+              <div>
+                <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Example project</p>
+                <h2 class="text-2xl font-bold">Blackline Ink</h2>
+                <p class="text-sm text-zinc-400 mt-1">Tattoo studio website highlighting artwork, safety and trust.</p>
+              </div>
+              <div class="hidden md:flex gap-3 text-xs">
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">Our Work</button>
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">The Process</button>
+              </div>
+            </header>
+            <section class="grid md:grid-cols-2 gap-6 items-start mb-8">
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Art first, then bookings.</h3>
+                <p class="text-sm text-zinc-300">
+                  The homepage is built around large, clean artwork galleries, artist profiles and clear safety messaging. 
+                  It feels premium without being overdesigned.
+                </p>
+                <ul class="mt-4 text-sm text-zinc-300 space-y-1">
+                  <li>• Hero gallery with featured pieces</li>
+                  <li>• Artist sections with styles</li>
+                  <li>• FAQ on deposits and consultations</li>
+                  <li>• Easy “Request a booking” form</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-zinc-800 bg-black/50 h-64">
+                <div class="h-full w-full flex items-center justify-center text-xs text-zinc-500">
+                  Mini homepage layout preview (scrollable on full site).
+                </div>
+              </div>
+            </section>
+          </div>
+        `,
+        trades: `
+          <div class="p-6 md:p-8">
+            <header class="flex items-center justify-between mb-6">
+              <div>
+                <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Example project</p>
+                <h2 class="text-2xl font-bold">Stirling Build & Trade</h2>
+                <p class="text-sm text-zinc-400 mt-1">Straightforward site focused on trust, services and enquiries.</p>
+              </div>
+              <div class="hidden md:flex gap-3 text-xs">
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">Our Work</button>
+                <button class="px-3 py-1.5 rounded-full border border-zinc-700/70 nav-block">The Process</button>
+              </div>
+            </header>
+            <section class="grid md:grid-cols-2 gap-6 items-start mb-8">
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Clear, honest and easy to contact.</h3>
+                <p class="text-sm text-zinc-300">
+                  The homepage prioritises services, areas covered and real project photos, with a strong focus on trust, qualifications and quick enquiry options.
+                </p>
+                <ul class="mt-4 text-sm text-zinc-300 space-y-1">
+                  <li>• Services split into clear categories</li>
+                  <li>• Before / after job photos</li>
+                  <li>• Credentials and insurance details</li>
+                  <li>• Simple enquiry form and phone prompts</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-zinc-800 bg-black/50 h-64">
+                <div class="h-full w-full flex items-center justify-center text-xs text-zinc-500">
+                  Mini homepage layout preview (scrollable on full site).
+                </div>
+              </div>
+            </section>
+          </div>
+        `
+      };
+
+      document.querySelectorAll('.project-card').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.project;
+          modalTitle.textContent = key === 'barber' ? 'Barber Studio — Homepage Preview'
+            : key === 'tattoo' ? 'Tattoo Studio — Homepage Preview'
+            : 'Trades & Construction — Homepage Preview';
+          modalContent.innerHTML = projectTemplates[key] || '';
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+
+          // block nav in preview
+          modalContent.querySelectorAll('.nav-block').forEach(el => {
+            el.addEventListener('click', (e) => {
+              e.preventDefault();
+              alert('View the full website preview on the “Our Work” page.');
+            });
+          });
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      });
+
+      // Hero small modals (Before/After, Simple Process) – you can expand later
+      document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const type = trigger.getAttribute('data-modal-target');
+          if (type === 'beforeAfterModal') {
+            alert('Before/after comparison will go here (you’ll plug in real examples later).');
+          } else if (type === 'simpleProcessModal') {
+            alert('Simple process visual will go here, tied into your Process page.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
