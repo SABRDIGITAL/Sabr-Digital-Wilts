@@ -1,152 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SABR DIGITAL — Talk To Us</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ["Inter","system-ui","sans-serif"] },
-          colors: { sabrBlue:"#38bdf8" },
-          boxShadow: { soft:"0 18px 40px rgba(0,0,0,.32)" },
-        }
-      }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <style>
-    body { background:#020617; }
-    .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.9); }
-  </style>
+<meta charset="UTF-8">
+<title>SABR DIGITAL — Talk To Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  body { background:#020617; color:white; font-family:Inter, sans-serif; }
+  .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.85);}
+  .card { background:rgba(15,23,42,0.7); border:1px solid rgba(56,189,248,0.3); }
+  .gridBG { opacity:0.25; }
+</style>
 </head>
-<body class="font-sans text-zinc-50">
-  <header class="fixed top-0 inset-x-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 pt-4">
-      <nav class="glass rounded-2xl shadow-soft border border-sabrBlue/30 flex items-center justify-between px-4 py-3">
-        <a href="index.html" class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl bg-sabrBlue/10 border border-sabrBlue/60 flex items-center justify-center overflow-hidden">
-            <img src="sabr-logo.png" alt="SABR DIGITAL logo" class="h-8 w-8 object-contain">
-          </div>
-          <span class="font-semibold tracking-tight text-lg">SABR DIGITAL</span>
-        </a>
-        <div class="hidden md:flex items-center gap-6 text-sm text-zinc-200">
-          <a href="work.html" class="hover:text-sabrBlue transition">Our Work</a>
-          <a href="process.html" class="hover:text-sabrBlue transition">The Process</a>
-          <a href="talk-to-us.html" class="text-sabrBlue">Talk To Us</a>
+
+<body>
+
+<!-- Animated Grid -->
+<div class="pointer-events-none fixed inset-0 gridBG">
+  <svg width="100%" height="100%">
+    <defs>
+      <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#38bdf8" stroke-width="0.35"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+</div>
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 pt-4">
+    <nav class="glass rounded-2xl shadow-xl border border-cyan-400/30 flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-cyan-400/10 border border-cyan-400/40 flex items-center justify-center overflow-hidden">
+          <img src="sabr-logo.png" class="h-8 w-8 object-contain">
         </div>
-      </nav>
-    </div>
-  </header>
+        <span class="font-semibold tracking-tight text-lg">SABR DIGITAL</span>
+      </a>
 
-  <main class="pt-32 md:pt-40 pb-20">
-    <section class="max-w-7xl mx-auto px-4">
-      <div class="max-w-2xl">
-        <p class="text-xs uppercase tracking-[0.25em] text-sabrBlue/70 mb-3">Contact</p>
-        <h1 class="text-3xl md:text-4xl font-extrabold mb-3">Talk to SABR DIGITAL.</h1>
-        <p class="text-zinc-400 text-sm md:text-base">
-          Tell us what you do, and what you’d like your website to achieve. We’ll come back with next steps, a clear plan and a simple quote.
-        </p>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="work.html" class="hover:text-cyan-400">Our Work</a>
+        <a href="process.html" class="hover:text-cyan-400">The Process</a>
+        <a href="talk-to-us.html" class="hover:text-cyan-400">Talk To Us</a>
       </div>
+    </nav>
+  </div>
+</header>
 
-      <!-- Floating cards -->
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <!-- Email card -->
-        <article class="contact-card rounded-3xl bg-black/70 border border-zinc-800/80 shadow-soft p-6 flex flex-col justify-between">
-          <div>
-            <h2 class="text-lg font-semibold mb-1">Email us</h2>
-            <p class="text-sm text-zinc-300 mb-4">
-              Prefer to keep it simple? Email us a few details about your business and we’ll reply with a clear plan.
-            </p>
-          </div>
-          <div class="space-y-2 text-sm">
-            <a href="mailto:sabrdigitalwilts@gmail.com" class="text-sabrBlue break-all hover:underline">
-              sabrdigitalwilts@gmail.com
-            </a>
-            <p class="text-xs text-zinc-400">We usually respond within one working day.</p>
-          </div>
-        </article>
+<!-- HERO -->
+<section class="pt-40 pb-14 text-center max-w-3xl mx-auto px-4">
+  <h1 class="text-5xl font-extrabold mb-3">Talk To Us</h1>
+  <p class="text-zinc-400 text-sm max-w-xl mx-auto">
+    Tell us what you do. We’ll take care of the website and the details.
+  </p>
+</section>
 
-        <!-- Instagram card -->
-        <article class="contact-card rounded-3xl bg-black/70 border border-zinc-800/80 shadow-soft p-6 flex flex-col justify-between">
-          <div>
-            <h2 class="text-lg font-semibold mb-1">DM us on Instagram</h2>
-            <p class="text-sm text-zinc-300 mb-4">
-              If you live on Instagram, so do we. Send us a message with your business name and what you need help with.
-            </p>
-          </div>
-          <div class="space-y-2 text-sm">
-            <!-- Replace with your actual handle -->
-            <a href="https://instagram.com/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sabrBlue/70 bg-sabrBlue/10 hover:bg-sabrBlue/20 text-sabrBlue text-xs font-semibold">
-              Open Instagram
-            </a>
-            <p class="text-xs text-zinc-400">Perfect for quick questions and ideas.</p>
-          </div>
-        </article>
+<!-- FLOATING CARDS -->
+<section class="max-w-5xl mx-auto px-4 grid md:grid-cols-3 gap-6 pb-32">
 
-        <!-- What to include card -->
-        <article class="contact-card rounded-3xl bg-black/70 border border-zinc-800/80 shadow-soft p-6 flex flex-col justify-between">
-          <div>
-            <h2 class="text-lg font-semibold mb-1">What should I include?</h2>
-            <p class="text-sm text-zinc-300 mb-3">
-              To make things faster, it helps if you can share:
-            </p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• Your business name</li>
-              <li>• What you do (barber, tattoo, trades, etc.)</li>
-              <li>• Whether you already have a website</li>
-              <li>• Any example sites you like</li>
-              <li>• Anything you definitely don’t want</li>
-            </ul>
-          </div>
-          <p class="mt-4 text-xs text-zinc-400">
-            Don’t overthink it — bullet points are fine. We’ll ask questions if we need more detail.
-          </p>
-        </article>
-      </div>
-    </section>
-  </main>
+  <!-- Email card -->
+  <div class="card rounded-3xl p-6 shadow-2xl">
+    <h2 class="text-xl font-bold mb-2">Email us</h2>
+    <p class="text-zinc-300 text-sm mb-4">
+      Prefer to keep it simple? Send us an email with your business details — we reply quickly.
+    </p>
+    <a href="mailto:sabrdigitalwilts@gmail.com"
+       class="inline-block px-4 py-2 rounded-xl bg-cyan-400 text-black font-semibold hover:bg-cyan-300">
+      Email SABR DIGITAL
+    </a>
+  </div>
 
-  <footer class="mt-16 border-t border-zinc-800/70">
-    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-zinc-400 flex items-center justify-between">
-      <p>© <span id="year"></span> SABR DIGITAL.</p>
-      <div class="flex gap-4 text-xs">
-        <a href="index.html" class="hover:text-sabrBlue">Home</a>
-        <a href="work.html" class="hover:text-sabrBlue">Examples</a>
-        <a href="process.html" class="hover:text-sabrBlue">The Process</a>
-      </div>
-    </div>
-  </footer>
+  <!-- Instagram card -->
+  <div class="card rounded-3xl p-6 shadow-2xl">
+    <h2 class="text-xl font-bold mb-2">Instagram DM</h2>
+    <p class="text-zinc-300 text-sm mb-4">
+      Send us a message on Instagram — quick, convenient and easy.
+    </p>
+    <a href="https://instagram.com/"
+       class="inline-block px-4 py-2 rounded-xl bg-cyan-400 text-black font-semibold hover:bg-cyan-300">
+      Open Instagram
+    </a>
+  </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- What to send -->
+  <div class="card rounded-3xl p-6 shadow-2xl">
+    <h2 class="text-xl font-bold mb-2">What to include</h2>
+    <p class="text-zinc-300 text-sm">
+      • Business name <br>
+      • What you do (barber, tattoo, trades) <br>
+      • Whether you have a website <br>
+      • Optional examples <br>
+      • Anything you definitely want/don’t want
+    </p>
+  </div>
 
-    window.addEventListener('load', () => {
-      if (!window.gsap) return;
-      gsap.registerPlugin(ScrollTrigger);
+</section>
 
-      gsap.from('main h1, main p', {
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-        stagger: 0.06
-      });
+<script>
+gsap.registerPlugin(ScrollTrigger);
 
-      gsap.utils.toArray('.contact-card').forEach((card, i) => {
-        gsap.from(card, {
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          delay: 0.1 * i,
-          scrollTrigger: { trigger: card, start: 'top 85%' }
-        });
-      });
-    });
-  </script>
+gsap.utils.toArray(".card").forEach((card, i) => {
+  gsap.from(card, {
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    delay: i * 0.15,
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+    }
+  });
+});
+</script>
+
 </body>
 </html>
