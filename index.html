@@ -32,7 +32,7 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    body { background: #020617; } /* zinc-950-ish */
+    body { background: #020617; } /* dark navy */
     .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.85); }
 
     /* Background grid */
@@ -55,14 +55,7 @@
   <!-- Animated grid background -->
   <div class="grid-wrapper pointer-events-none">
     <svg id="techGrid" viewBox="0 0 1000 1000">
-      <!-- vertical lines -->
       <g stroke="#38bdf8" stroke-width="0.4" stroke-linecap="round">
-        <!-- We'll animate these with GSAP -->
-        <!-- simple 10x10 grid -->
-        <!-- vertical -->
-        <!-- 0 to 1000 every 100 -->
-        <!-- horizontal -->
-        <!-- 0 to 1000 every 100 -->
         <!-- vertical -->
         <line class="grid-line" x1="0" y1="0" x2="0" y2="1000"/>
         <line class="grid-line" x1="100" y1="0" x2="100" y2="1000"/>
@@ -96,7 +89,6 @@
     <div class="max-w-7xl mx-auto px-4 pt-4">
       <nav class="glass rounded-2xl shadow-soft border border-sabrBlue/30 flex items-center justify-between px-4 py-3">
         <a href="index.html" class="flex items-center gap-3">
-          <!-- Use your real logo file here -->
           <div class="h-9 w-9 rounded-xl bg-sabrBlue/10 border border-sabrBlue/60 flex items-center justify-center overflow-hidden">
             <img src="sabr-logo.png" alt="SABR DIGITAL logo" class="h-8 w-8 object-contain">
           </div>
@@ -115,6 +107,11 @@
     <!-- HERO -->
     <section class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div>
+        <div class="flex justify-start mb-6">
+          <div class="h-20 w-20 md:h-24 md:w-24 rounded-2xl bg-sabrBlue/10 border border-sabrBlue/60 flex items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(56,189,248,0.55)]">
+            <img src="sabr-logo.png" alt="SABR DIGITAL logo" class="h-16 w-16 md:h-20 md:w-20 object-contain">
+          </div>
+        </div>
         <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
           Clean, modern websites that help you win more customers.
         </h1>
@@ -151,17 +148,17 @@
                alt="Modern barbershop environment" class="w-full h-80 object-cover" />
         </div>
         <div class="mt-5 grid grid-cols-3 gap-4">
-          <button data-modal-target="beforeAfterModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left">
+          <button data-modal-target="beforeAfterModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left text-xs">
             <p class="font-semibold text-sm">Before / After</p>
-            <p class="text-xs text-zinc-400 mt-1">See real upgrades in a side-by-side view.</p>
+            <p class="text-zinc-400 mt-1">See a clear visual upgrade from old to new.</p>
           </button>
-          <button data-modal-target="simpleProcessModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left">
+          <button data-modal-target="simpleProcessModal" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition text-left text-xs">
             <p class="font-semibold text-sm">Simple Process</p>
-            <p class="text-xs text-zinc-400 mt-1">View how we build your website.</p>
+            <p class="text-zinc-400 mt-1">Understand how we take you from idea to live site.</p>
           </button>
-          <a href="work.html" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition block">
+          <a href="work.html" class="p-4 rounded-2xl bg-black/70 border border-zinc-800 hover:border-sabrBlue/70 hover:-translate-y-0.5 transition block text-xs">
             <p class="font-semibold text-sm">View Our Work</p>
-            <p class="text-xs text-zinc-400 mt-1">Explore full example projects.</p>
+            <p class="text-zinc-400 mt-1">Explore full example projects.</p>
           </a>
         </div>
       </div>
@@ -267,7 +264,7 @@
       <div class="flex items-center justify-between px-5 py-3 border-b border-zinc-800">
         <div>
           <h3 id="modalTitle" class="font-semibold text-lg">Project Preview</h3>
-          <p class="text-xs text-zinc-400 mt-0.5">Homepage preview only. View full version on the Our Work page.</p>
+          <p class="text-xs text-zinc-400 mt-0.5">Homepage preview only. View the full version on the Our Work page.</p>
         </div>
         <button id="modalClose" class="h-8 w-8 rounded-full border border-zinc-700 hover:border-sabrBlue/70 hover:text-sabrBlue flex items-center justify-center text-sm">
           ✕
@@ -295,7 +292,6 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     window.addEventListener('load', () => {
-      // GSAP setup
       if (window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -472,7 +468,7 @@
           modalContent.querySelectorAll('.nav-block').forEach(el => {
             el.addEventListener('click', (e) => {
               e.preventDefault();
-              alert('View the full website preview on the “Our Work” page.');
+              alert('View the full preview on the “Our Work” page.');
             });
           });
         });
@@ -489,14 +485,14 @@
         }
       });
 
-      // Hero small modals (Before/After, Simple Process) – you can expand later
+      // Hero small modals (Before/After, Simple Process) – placeholder alerts for now
       document.querySelectorAll('[data-modal-target]').forEach(trigger => {
         trigger.addEventListener('click', () => {
           const type = trigger.getAttribute('data-modal-target');
           if (type === 'beforeAfterModal') {
-            alert('Before/after comparison will go here (you’ll plug in real examples later).');
+            alert('Before/after comparison will go here. You’ll plug in real screenshots later.');
           } else if (type === 'simpleProcessModal') {
-            alert('Simple process visual will go here, tied into your Process page.');
+            alert('Simple process visual will go here, linked to your Process page.');
           }
         });
       });
