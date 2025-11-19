@@ -1,235 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SABR DIGITAL — The Process</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ["Inter","system-ui","sans-serif"] },
-          colors: { sabrBlue:"#38bdf8" },
-          boxShadow: { soft:"0 18px 40px rgba(0,0,0,.32)" },
-        }
-      }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <style>
-    body { background:#020617; }
-    .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.9); }
-  </style>
+<meta charset="UTF-8">
+<title>SABR DIGITAL — The Process</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<style>
+  body { background:#020617; color:white; font-family:Inter, sans-serif; }
+  .glass { backdrop-filter: blur(16px) saturate(160%); background: rgba(15,23,42,0.85); }
+  .timeline-line { width: 4px; background: rgba(56,189,248,0.4); }
+</style>
 </head>
-<body class="font-sans text-zinc-50">
-  <header class="fixed top-0 inset-x-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 pt-4">
-      <nav class="glass rounded-2xl shadow-soft border border-sabrBlue/30 flex items-center justify-between px-4 py-3">
-        <a href="index.html" class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl bg-sabrBlue/10 border border-sabrBlue/60 flex items-center justify-center overflow-hidden">
-            <img src="sabr-logo.png" alt="SABR DIGITAL logo" class="h-8 w-8 object-contain">
-          </div>
-          <span class="font-semibold tracking-tight text-lg">SABR DIGITAL</span>
-        </a>
-        <div class="hidden md:flex items-center gap-6 text-sm text-zinc-200">
-          <a href="work.html" class="hover:text-sabrBlue transition">Our Work</a>
-          <a href="process.html" class="text-sabrBlue">The Process</a>
-          <a href="talk-to-us.html" class="hover:text-sabrBlue transition">Talk To Us</a>
+
+<body>
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 pt-4">
+    <nav class="glass rounded-2xl shadow-xl border border-cyan-400/30 flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-cyan-400/10 border border-cyan-400/40 flex items-center justify-center overflow-hidden">
+          <img src="sabr-logo.png" class="h-8 w-8 object-contain">
         </div>
-      </nav>
+        <span class="font-semibold tracking-tight text-lg">SABR DIGITAL</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="work.html" class="hover:text-cyan-400">Our Work</a>
+        <a href="process.html" class="hover:text-cyan-400">The Process</a>
+        <a href="talk-to-us.html" class="hover:text-cyan-400">Talk To Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-40 pb-20 max-w-5xl mx-auto px-4">
+  <h1 class="text-5xl font-extrabold mb-4">The Process</h1>
+  <p class="text-zinc-400 max-w-xl">
+    A simple, guided journey — built to make things easy, clear and stress-free from start to finish.
+  </p>
+</section>
+
+<!-- BUBBLE NAV -->
+<div class="flex items-center gap-4 justify-center mb-20">
+  <div class="flex gap-4">
+    <div class="stepBubble w-4 h-4 rounded-full bg-zinc-700"></div>
+    <div class="stepBubble w-4 h-4 rounded-full bg-zinc-700"></div>
+    <div class="stepBubble w-4 h-4 rounded-full bg-zinc-700"></div>
+    <div class="stepBubble w-4 h-4 rounded-full bg-zinc-700"></div>
+    <div class="stepBubble w-4 h-4 rounded-full bg-zinc-700"></div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="max-w-5xl mx-auto px-4 relative mb-32">
+
+  <!-- vertical line -->
+  <div class="absolute left-5 top-0 bottom-0 timeline-line"></div>
+
+  <!-- STEP 1 -->
+  <div class="relative pl-16 mb-20">
+    <div class="absolute left-3 top-2 h-5 w-5 rounded-full bg-cyan-400/70"></div>
+    <h2 class="text-3xl font-bold">01. Discovery Call</h2>
+    <p class="text-zinc-300 mt-3 max-w-lg">
+      We get to know your business, goals, customers and what your website must achieve — without wasting time.
+    </p>
+
+    <div class="mt-4 text-sm text-cyan-300/90">
+      <strong>What this means for you:</strong><br>
+      • Clear direction<br>
+      • No stress<br>
+      • We immediately know what to build
     </div>
-  </header>
+  </div>
 
-  <main class="pt-32 md:pt-40 pb-20">
-    <section class="max-w-7xl mx-auto px-4">
-      <p class="text-xs uppercase tracking-[0.25em] text-sabrBlue/70 mb-3">How we work</p>
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-3">A simple, done-for-you process.</h1>
-      <p class="text-zinc-400 max-w-2xl text-sm md:text-base">
-        No long meetings, no complicated tools. We take you from “no website” or “outdated website” to a clean, modern, live site — with a clear process you always understand.
-      </p>
+  <!-- STEP 2 -->
+  <div class="relative pl-16 mb-20">
+    <div class="absolute left-3 top-2 h-5 w-5 rounded-full bg-cyan-400/70"></div>
+    <h2 class="text-3xl font-bold">02. Content Intake</h2>
+    <p class="text-zinc-300 mt-3 max-w-lg">
+      You send your basic text, photos and any reference websites. Don’t worry — we only need the essentials.
+    </p>
 
-      <!-- Step navigation bubbles -->
-      <div class="mt-8 flex flex-wrap gap-3 text-xs">
-        <button class="step-bubble px-3 py-1.5 rounded-full border border-zinc-700/80 bg-black/60 text-zinc-300" data-step="1">01 • Discovery Call</button>
-        <button class="step-bubble px-3 py-1.5 rounded-full border border-zinc-700/80 bg-black/60 text-zinc-300" data-step="2">02 • Content Intake</button>
-        <button class="step-bubble px-3 py-1.5 rounded-full border border-zinc-700/80 bg-black/60 text-zinc-300" data-step="3">03 • Design &amp; Build</button>
-        <button class="step-bubble px-3 py-1.5 rounded-full border border-zinc-700/80 bg-black/60 text-zinc-300" data-step="4">04 • Review &amp; Refine</button>
-        <button class="step-bubble px-3 py-1.5 rounded-full border border-zinc-700/80 bg-black/60 text-zinc-300" data-step="5">05 • Launch &amp; Support</button>
-      </div>
-    </section>
-
-    <!-- Timeline -->
-    <section class="max-w-7xl mx-auto px-4 mt-12 grid md:grid-cols-[auto,1fr] gap-8">
-      <!-- Progress line -->
-      <div class="relative hidden md:block">
-        <div class="w-px bg-zinc-800/80 h-full mx-auto"></div>
-        <div id="progressLine" class="absolute left-1/2 -translate-x-1/2 top-0 w-[3px] bg-gradient-to-b from-sabrBlue via-sabrBlue/70 to-sabrBlue/20 rounded-full h-0"></div>
-      </div>
-
-      <!-- Steps -->
-      <div class="space-y-10">
-        <!-- Step 1 -->
-        <article id="step-1" class="step-card rounded-3xl bg-black/60 border border-zinc-800/80 p-6 md:p-7 shadow-soft">
-          <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Step 01</p>
-          <h2 class="text-xl font-semibold mb-2">Discovery Call</h2>
-          <p class="text-sm text-zinc-300">
-            A quick, focused call to understand your business, services and what your new website needs to achieve. No tech talk, no pressure — just clarity.
-          </p>
-          <div class="mt-4 border-t border-zinc-800/80 pt-3">
-            <p class="text-xs uppercase tracking-wide text-zinc-400 mb-1">What this means for you</p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• No long meetings.</li>
-              <li>• We understand your goals from day one.</li>
-              <li>• You walk away knowing exactly what we’re building.</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Step 2 -->
-        <article id="step-2" class="step-card rounded-3xl bg-black/60 border border-zinc-800/80 p-6 md:p-7 shadow-soft">
-          <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Step 02</p>
-          <h2 class="text-xl font-semibold mb-2">Content Intake</h2>
-          <p class="text-sm text-zinc-300">
-            You send us the basics — photos, logo (if you have one), services, prices and any websites you like. Even if it’s messy, we clean it up.
-          </p>
-          <div class="mt-4 border-t border-zinc-800/80 pt-3">
-            <p class="text-xs uppercase tracking-wide text-zinc-400 mb-1">What this means for you</p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• You don’t have to write perfect “website copy”.</li>
-              <li>• We organise your information into something clear and professional.</li>
-              <li>• You stay in control of what’s included.</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Step 3 -->
-        <article id="step-3" class="step-card rounded-3xl bg-black/60 border border-zinc-800/80 p-6 md:p-7 shadow-soft">
-          <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Step 03</p>
-          <h2 class="text-xl font-semibold mb-2">Design &amp; Build</h2>
-          <p class="text-sm text-zinc-300">
-            We design and build a clean, modern website tailored to your business — with trust-driven layout, clear structure and smooth mobile experience.
-          </p>
-          <div class="mt-4 border-t border-zinc-800/80 pt-3">
-            <p class="text-xs uppercase tracking-wide text-zinc-400 mb-1">What this means for you</p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• Your website looks like it belongs in 2025, not 2010.</li>
-              <li>• Customers can actually understand what you do and how to contact you.</li>
-              <li>• You don’t touch any of the tech — we handle everything.</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Step 4 -->
-        <article id="step-4" class="step-card rounded-3xl bg-black/60 border border-zinc-800/80 p-6 md:p-7 shadow-soft">
-          <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Step 04</p>
-          <h2 class="text-xl font-semibold mb-2">Review &amp; Refine</h2>
-          <p class="text-sm text-zinc-300">
-            You review the website, tell us what you like and what you’d change. We refine the design, wording and layout until it feels exactly like your business.
-          </p>
-          <div class="mt-4 border-t border-zinc-800/80 pt-3">
-            <p class="text-xs uppercase tracking-wide text-zinc-400 mb-1">What this means for you</p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• You’re involved without needing to “design” anything yourself.</li>
-              <li>• Small details can be adjusted before launch.</li>
-              <li>• You know what your customers will see before it goes live.</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Step 5 -->
-        <article id="step-5" class="step-card rounded-3xl bg-black/60 border border-zinc-800/80 p-6 md:p-7 shadow-soft">
-          <p class="text-xs uppercase tracking-wide text-sabrBlue/80 mb-1">Step 05</p>
-          <h2 class="text-xl font-semibold mb-2">Launch &amp; Support</h2>
-          <p class="text-sm text-zinc-300">
-            We launch your website, connect your domain and make sure everything works smoothly on mobile and desktop. We’re available for minor tweaks after launch.
-          </p>
-          <div class="mt-4 border-t border-zinc-800/80 pt-3">
-            <p class="text-xs uppercase tracking-wide text-zinc-400 mb-1">What this means for you</p>
-            <ul class="text-sm text-zinc-300 space-y-1">
-              <li>• Your site goes live with no hassle on your side.</li>
-              <li>• Customers can finally find you, trust you and contact you easily.</li>
-              <li>• You’re not left on your own the moment it launches.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mt-16 border-t border-zinc-800/70">
-    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-zinc-400 flex items-center justify-between">
-      <p>© <span id="year"></span> SABR DIGITAL.</p>
-      <div class="flex gap-4 text-xs">
-        <a href="index.html" class="hover:text-sabrBlue">Home</a>
-        <a href="work.html" class="hover:text-sabrBlue">Examples</a>
-        <a href="talk-to-us.html" class="hover:text-sabrBlue">Talk To Us</a>
-      </div>
+    <div class="mt-4 text-sm text-cyan-300/90">
+      <strong>What this means for you:</strong><br>
+      • Fast start<br>
+      • No complicated forms<br>
+      • We handle the heavy lifting
     </div>
-  </footer>
+  </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- STEP 3 -->
+  <div class="relative pl-16 mb-20">
+    <div class="absolute left-3 top-2 h-5 w-5 rounded-full bg-cyan-400/70"></div>
+    <h2 class="text-3xl font-bold">03. Design & Build</h2>
+    <p class="text-zinc-300 mt-3 max-w-lg">
+      We create a clean, modern, high-trust website tailored to your brand and industry.
+    </p>
 
-    window.addEventListener('load', () => {
-      if (!window.gsap) return;
-      gsap.registerPlugin(ScrollTrigger);
+    <div class="mt-4 text-sm text-cyan-300/90">
+      <strong>What this means for you:</strong><br>
+      • A professional online identity<br>
+      • Designed to convert customers<br>
+      • Zero technical work needed
+    </div>
+  </div>
 
-      const cards = gsap.utils.toArray('.step-card');
-      const progressLine = document.getElementById('progressLine');
-      const bubbles = document.querySelectorAll('.step-bubble');
+  <!-- STEP 4 -->
+  <div class="relative pl-16 mb-20">
+    <div class="absolute left-3 top-2 h-5 w-5 rounded-full bg-cyan-400/70"></div>
+    <h2 class="text-3xl font-bold">04. Review & Refine</h2>
+    <p class="text-zinc-300 mt-3 max-w-lg">
+      You check the website. We make adjustments based on your feedback — big or small.
+    </p>
 
-      cards.forEach((card, index) => {
-        gsap.from(card, {
-          y: 30,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            onEnter: () => setActiveStep(index + 1)
-          }
-        });
-      });
+    <div class="mt-4 text-sm text-cyan-300/90">
+      <strong>What this means for you:</strong><br>
+      • No surprises<br>
+      • You stay in control<br>
+      • The site matches your standards
+    </div>
+  </div>
 
-      // progress line growth
-      ScrollTrigger.create({
-        trigger: '.step-card',
-        start: 'top center',
-        endTrigger: cards[cards.length - 1],
-        end: 'bottom center',
-        onUpdate: (self) => {
-          const maxHeight = document.querySelector('.step-card:last-of-type').getBoundingClientRect().bottom
-            - document.querySelector('.step-card:first-of-type').getBoundingClientRect().top;
-          const h = maxHeight * self.progress;
-          progressLine.style.height = h + 'px';
-        }
-      });
+  <!-- STEP 5 -->
+  <div class="relative pl-16 mb-20">
+    <div class="absolute left-3 top-2 h-5 w-5 rounded-full bg-cyan-400/70"></div>
+    <h2 class="text-3xl font-bold">05. Launch & Support</h2>
+    <p class="text-zinc-300 mt-3 max-w-lg">
+      Once approved, your site goes live — fully hosted, mobile-ready, and ready for customers.
+    </p>
 
-      function setActiveStep(step) {
-        bubbles.forEach(b => {
-          const s = Number(b.dataset.step);
-          if (s === step) {
-            b.classList.add('bg-sabrBlue/20','border-sabrBlue','text-sabrBlue');
-          } else {
-            b.classList.remove('bg-sabrBlue/20','border-sabrBlue','text-sabrBlue');
-          }
-        });
+    <div class="mt-4 text-sm text-cyan-300/90">
+      <strong>What this means for you:</strong><br>
+      • A proper digital identity<br>
+      • Customers trust you instantly<br>
+      • Ongoing support available
+    </div>
+  </div>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Bubbles fill on scroll
+const bubbles = document.querySelectorAll(".stepBubble");
+gsap.utils.toArray(".timeline-line, h2, p").forEach((el, i) => {
+  gsap.from(el, {
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 80%",
+      onEnter: () => {
+        if (bubbles[i]) gsap.to(bubbles[i], { background: "#38bdf8", duration: 0.4 });
       }
+    }
+  });
+});
+</script>
 
-      // click -> scroll to card
-      bubbles.forEach(b => {
-        b.addEventListener('click', () => {
-          const step = b.dataset.step;
-          const card = document.getElementById(`step-${step}`);
-          if (card) {
-            card.scrollIntoView({ behavior:'smooth', block:'center' });
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
